@@ -1,0 +1,32 @@
+{
+  "name": "selfmem-claude",
+  "description": "Persistent memory for Claude Code with auto-recall and semantic search",
+  "version": "1.0.0",
+  "author": {
+    "name": "Merapi Labs"
+  },
+  "mcpServers": {
+    "selfmem": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://selfmem.com/mcp",
+               "--header", "X-API-Key: ${SELFMEM_API_KEY}"],
+      "env": {
+        "SELFMEM_API_KEY": ""
+      }
+    }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/selfmem-recall.sh",
+            "timeout": 8
+          }
+        ]
+      }
+    ]
+  }
+}
