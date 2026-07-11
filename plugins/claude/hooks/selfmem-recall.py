@@ -99,7 +99,12 @@ def call_recall(query: str) -> dict | None:
     try:
         with urllib.request.urlopen(req, timeout=8) as resp:
             return json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, urllib.error.HTTPError, OSError, json.JSONDecodeError):
+    except (
+        urllib.error.URLError,
+        urllib.error.HTTPError,
+        OSError,
+        json.JSONDecodeError,
+    ):
         return None
 
 
@@ -121,8 +126,10 @@ def format_results(data: dict) -> None:
     if persona:
         persona_line = "; persona available"
 
-    print(f"[selfmem recall] {count} stored memories "
-          f"(grounded={grounded}, top_score={top_score}{persona_line}):")
+    print(
+        f"[selfmem recall] {count} stored memories "
+        f"(grounded={grounded}, top_score={top_score}{persona_line}):"
+    )
     print()
 
     for item in items:
@@ -135,12 +142,15 @@ def format_results(data: dict) -> None:
     print()
 
     if not grounded:
-        print("[recall grounded=false] Treat as prior context, not absolute fact; "
-              "verify before relying on them.")
+        print(
+            "[recall grounded=false] Treat as prior context, not absolute fact; "
+            "verify before relying on them."
+        )
         print()
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
+
 
 def main() -> None:
     # Guard: require API key + project
