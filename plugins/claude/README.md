@@ -88,8 +88,8 @@ Or add them to `.claude/settings.local.json`:
 | Component | Path | Description |
 |---|---|---|
 | `selfmem` MCP server | plugin.json `mcpServers` | Connects to SelfMem via `mcp-remote` + `X-API-Key` header |
-| `selfmem-recall.sh` | `hooks/selfmem-recall.sh` | Shell recall hook (uses curl + jq, fail-open) |
-| `selfmem-recall.py` | `hooks/selfmem-recall.py` | Python recall hook (stdlib only, fail-open) |
+| `selfmem-recall.sh` | `hooks/selfmem-recall.sh` | Recall hook entrypoint — delegates to the Python hook when `python3` is available, otherwise falls back to a curl + jq pipeline (fail-open) |
+| `selfmem-recall.py` | `hooks/selfmem-recall.py` | Python recall hook (stdlib only, fail-open) — the preferred implementation |
 
 The recall hook fires on `UserPromptSubmit` — when you send a message, it searches SelfMem for relevant memories and prints them as context for that turn. It always fails open (any error → prints save reminder only).
 

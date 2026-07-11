@@ -96,8 +96,9 @@ def call_recall(query: str) -> dict | None:
     req = urllib.request.Request(url)
     req.add_header("X-API-Key", SELFMEM_API_KEY)
 
+    # timeout stays under the 8s hook timeout so the fail-open path still runs
     try:
-        with urllib.request.urlopen(req, timeout=8) as resp:
+        with urllib.request.urlopen(req, timeout=6) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except (
         urllib.error.URLError,

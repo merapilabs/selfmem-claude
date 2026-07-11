@@ -1,7 +1,7 @@
 {
   "name": "selfmem-claude",
   "description": "Persistent memory for Claude Code with auto-recall and semantic search",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Merapi Labs"
   },
