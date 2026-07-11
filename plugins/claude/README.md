@@ -69,7 +69,7 @@ Or add them to `.claude/settings.local.json`:
 | `selfmem-recall.sh` | `hooks/selfmem-recall.sh` | Shell recall hook (uses curl + jq, fail-open) |
 | `selfmem-recall.py` | `hooks/selfmem-recall.py` | Python recall hook (stdlib only, fail-open) |
 
-The recall hook fires on `PostToolUse` — after each tool execution, it searches SelfMem for relevant memories and prints them as context for the next model turn. It always fails open (any error → prints save reminder only).
+The recall hook fires on `UserPromptSubmit` — when you send a message, it searches SelfMem for relevant memories and prints them as context for that turn. It always fails open (any error → prints save reminder only).
 
 ## Verifying It Works
 
