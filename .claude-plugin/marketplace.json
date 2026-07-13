@@ -1,7 +1,8 @@
 {
   "name": "selfmem-plugins",
   "owner": {
-    "name": "Merapi Labs"
+    "name": "merapilabs",
+    "email": "info@merapilabs.com"
   },
   "description": "SelfMem — persistent, self-learning memory for AI assistants",
   "plugins": [
@@ -11,7 +12,8 @@
       "description": "Persistent memory for Claude Code with auto-recall and semantic search",
       "version": "1.0.3",
       "author": {
-        "name": "Merapi Labs"
+        "name": "merapilabs",
+        "email": "info@merapilabs.com"
       }
     }
   ]
