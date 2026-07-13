@@ -6,6 +6,9 @@
     "name": "merapilabs",
     "email": "info@merapilabs.com"
   },
+  "homepage": "https://selfmem.com",
+  "repository": "https://github.com/merapilabs/selfmem-claude",
+  "license": "MIT",
   "mcpServers": {
     "selfmem": {
       "command": "npx",
